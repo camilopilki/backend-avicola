@@ -8,9 +8,9 @@ exports.registerJaula = (data, callback) => {
 
 exports.getAllJaulas = (callback) => {
   const sql = `
-    SELECT jaula.*, COUNT(Ave.Id_Ave) AS Cantidad_Aves
+    SELECT jaula.*, COUNT(ave.Id_Ave) AS Cantidad_Aves
     FROM jaula
-    LEFT JOIN Ave ON jaula.Id_Jaula = Ave.Id_Jaula
+    LEFT JOIN ave ON jaula.Id_Jaula = ave.Id_Jaula
     GROUP BY jaula.Id_Jaula;
   `;
   db.query(sql, callback);
