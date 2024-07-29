@@ -14,7 +14,7 @@ app.use(express.json());
 
 // Configurar CORS con opciones específicas
 app.use(cors({
-  origin: ['http://localhost:9000', 'https://avicola-staluisa-71d0d1a32774.herokuapp.com'],
+  origin: ['http://localhost:3000', 'https://fronted-avicola-0d47510ce471.herokuapp.com'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
