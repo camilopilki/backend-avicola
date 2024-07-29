@@ -15,7 +15,7 @@ app.use(express.json());
 
 // Configurar CORS con opciones específicas
 app.use(cors({
-  origin: 'http://localhost:9000', // Reemplaza con la URL de tu frontend
+  origin: ['http://localhost:9000', 'https://avicola-staluisa-71d0d1a32774.herokuapp.com'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
@@ -32,9 +32,11 @@ const db = mysql.createConnection({
 // Conectar a MySQL
 db.connect((err) => {
   if (err) {
-    throw err;
+    console.error('Error connecting to MySQL:', err);
+    process.exit(1); // Salir si hay un error de conexión
+  } else {
+    console.log('Conectado a MySQL');
   }
-  console.log('Conectado a MySQL');
 });
 
 // Ruta de prueba
