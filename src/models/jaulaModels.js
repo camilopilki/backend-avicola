@@ -8,10 +8,10 @@ exports.registerJaula = (data, callback) => {
 
 exports.getAllJaulas = (callback) => {
   const sql = `
-    SELECT Jaula.*, COUNT(Ave.Id_Ave) AS Cantidad_Aves
-    FROM Jaula
-    LEFT JOIN Ave ON Jaula.Id_Jaula = Ave.Id_Jaula
-    GROUP BY Jaula.Id_Jaula;
+    SELECT jaula.*, COUNT(Ave.Id_Ave) AS Cantidad_Aves
+    FROM jaula
+    LEFT JOIN Ave ON jaula.Id_Jaula = Ave.Id_Jaula
+    GROUP BY jaula.Id_Jaula;
   `;
   db.query(sql, callback);
 };
